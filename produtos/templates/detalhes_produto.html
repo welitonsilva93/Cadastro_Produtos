@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detalhes do Produto</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Detalhes do Produto: {{ produto.nome_produto }}</h1>
+        <p class="mt-3">Descrição: {{ produto.descricao }}</p>
+        <h2 class="mt-4">Fornecedores e Preços de Custo:</h2>
+        <ul class="list-group mt-3">
+            {% for preco in precos %}
+            <li class="list-group-item">
+                {{ preco.fornecedor.nome_fantasia }} - R$ {{ preco.preco_custo }}
+            </li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'categorias' %}" class="btn btn-primary mt-3">Voltar para Categorias</a>
+    </div>
+</body>
+</html>

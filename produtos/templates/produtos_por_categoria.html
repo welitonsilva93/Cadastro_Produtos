@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Produtos por Categoria</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Produtos na categoria: {{ categoria.nome_categoria }}</h1>
+        <ul class="list-group mt-3">
+            {% for produto in produtos %}
+            <li class="list-group-item">
+                <a href="{% url 'detalhes_produto' produto.id %}">{{ produto.nome_produto }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'categorias' %}" class="btn btn-primary mt-3">Voltar para Categorias</a>
+    </div>
+</body>
+</html>
